@@ -34,7 +34,7 @@
                     <option value="A3">A3</option>
                 </select>
             </div>
-            <h5 style="float: left;">More coming soon...</h5>
+            <h5 style="float: left;" id="betterthing">More coming soon...</h5>
             <button id="submit-btn" class="btn btn-dark">Submit</button>
         </form>
         <p style="text-align: center;font-family: 'Roboto', sans-serif;font-weight: 300;font-style: normal;"><i>made
@@ -58,6 +58,7 @@
             })
                 .then(response => response.json())
                 .then(data => {
+                    document.getElementById('betterthing').innerHTML = `The code generated for difficulty ${selectedDifficulty} is: ${data.code}`
                     console.log('Success:', data);
                 })
                 .catch((error) => {

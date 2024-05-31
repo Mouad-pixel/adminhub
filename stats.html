@@ -41,7 +41,7 @@
             // Function to fetch data from the Flask endpoint
             function fetchData() {
                 $.ajax({
-                    url: '/stats',
+                    url: 'https://mouadcoding.pythonanywhere.com/stats',
                     method: 'GET',
                     dataType: 'json',
                     success: function (response) {

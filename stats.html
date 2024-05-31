@@ -18,8 +18,11 @@
         <table class="table table-bordered" id="dataTable">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Data</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                    <th>Code Used</th>
+                    <th>Difficulty</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,7 +41,7 @@
             // Function to fetch data from the Flask endpoint
             function fetchData() {
                 $.ajax({
-                    url: 'https://mouadcoding.pythonanywhere.com/stats',
+                    url: '/stats',
                     method: 'GET',
                     dataType: 'json',
                     success: function (response) {
@@ -47,9 +50,13 @@
 
                         // Loop through the documents and add rows to the table
                         response.documents.forEach(function (doc) {
+                            var data = doc.data;
                             var row = '<tr>' +
                                 '<td>' + doc.id + '</td>' +
-                                '<td>' + JSON.stringify(doc.data) + '</td>' +
+                                '<td>' + (data.Name || 'not available') + '</td>' +
+                                '<td>' + (data.Score !== undefined ? data.Score : 'not available') + '</td>' +
+                                '<td>' + (data.code_used !== undefined ? data.code_used : 'not available') + '</td>' +
+                                '<td>' + (data.difficulty || 'not available') + '</td>' +
                                 '</tr>';
                             $('#dataTable tbody').append(row);
                         });

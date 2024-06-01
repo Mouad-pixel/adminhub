@@ -61,8 +61,8 @@
                             var row = '<tr>' +
                                 '<td>' + doc.id + '</td>' +
                                 '<td>' + (data.Name || 'not available') + '</td>' +
-                                '<td>' + (data.Score !== undefined ? data.Score : 'not available') + '</td>' +
-                                '<td>' + (data.code_used !== undefined ? data.code_used : 'not available') + '</td>' +
+                                '<td>' + (data.Score !== undefined ? data.Score : 'didnt pass test yet') + '</td>' +
+                                '<td>' + (data.code_used !== undefined ? data.code_used : 'System Error') + '</td>' +
                                 '<td>' + (data.difficulty || 'not available') + '</td>' +
                                 '</tr>';
                             $('#dataTable tbody').append(row);
